@@ -32,14 +32,14 @@ function processAirport( airport_array )
               {
               var cheapest_ticket = page.evaluate( function() {
                    var parent_table = document.evaluate(
-                     '//*[@id="root"]/table/tbody/tr/td/table/tbody/tr/td[2]/div/div[1]/div[3]/div[1]/div/div[2]',
+                     '<%= @results_table_xpath %>',
                      document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
                    );                                                     
                    if( parent_table.snapshotLength > 0 )
                    {
                        
                      var result = document.evaluate(
-                       '//*[@id="root"]/table/tbody/tr/td/table/tbody/tr/td[2]/div/div[1]/div[3]/div[1]/div/div[2]/div[2]/div[1]/div[1]/div/div/div[6]/span[2]',
+                       '<%= @results_prices_xpath %>',
                      document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null
                    );
                      if( result.snapshotLength == 0 )
