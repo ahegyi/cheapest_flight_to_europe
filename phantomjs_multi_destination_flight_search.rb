@@ -25,7 +25,7 @@ class MultiDestinationFlightSearch
     
     results = `#{phantomjs_path} countries.js`
     results.split( "\n" ).sort do |a, b|
-      convert_price_to_integer( a.split( ' , ' ).first ) <=> convert_price_to_integer( b.split( ' , ').first )
+      convert_price_to_integer( a.split( '","' ).first[1..-1] ) <=> convert_price_to_integer( b.split( '","').first[1..-1] )
     end.join( "\n" )
   end
 
